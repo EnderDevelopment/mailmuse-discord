@@ -1,20 +1,30 @@
 # Discord Email Draft Bot
 
-MailMuse is a Discord email draft bot that turns a stated purpose, optional recipient, chosen tone, and extra details into a ready-to-edit email draft. It uses a built-in template and does not require an AI provider or send emails.
+MailMuse is a Python Discord bot for generating email drafts with the `/email` slash command. It creates drafts locally without an AI provider or email-sending integration, and replies privately to the user who requested them.
 
 ## Install
 
-1. Install Python 3.10 or newer.
-2. Install the dependencies with `python -m pip install -r requirements.txt`.
-3. Copy `.env.example` to `.env` and set `DISCORD_TOKEN` to your Discord bot token.
-4. In the Discord Developer Portal, create an application and bot. Invite it to your server with the `bot` and `applications.commands` scopes and permission to use application commands and send messages.
-5. Start the bot with `python main.py`. Slash commands sync at startup; `/email` may take a short time to appear.
+1. Create a Discord application and bot in the Discord Developer Portal.
+2. Invite the bot to your server with the `bot` and `applications.commands` scopes, and grant it permission to use application commands and send messages.
+3. Install Python 3.10 or newer.
+4. Install the dependencies:
+   ```sh
+   python -m pip install -r requirements.txt
+   ```
+5. Set `DISCORD_TOKEN` to your bot token in the environment or in a `.env` file based on `.env.example`. Keep the token private.
+6. Start the bot:
+   ```sh
+   python main.py
+   ```
 
 ## Use
 
-1. Run `/email` in a server where the bot is installed.
-2. Enter the email purpose and select a tone: professional, friendly, formal, casual, or persuasive. Optionally provide a recipient and details.
-3. Review the private draft returned by the bot. Replace `[Your name]` and make any needed edits before sending it yourself.
+1. In Discord, run `/email`.
+2. Enter the email purpose and choose a tone: professional, friendly, formal, casual, or persuasive.
+3. Optionally enter a recipient and details to include.
+4. Review the private draft, including its suggested subject, and replace `[Your name]` before sending it yourself.
+
+The purpose must be no more than 500 characters, the recipient no more than 80 characters, and the details no more than 700 characters.
 
 ---
 
